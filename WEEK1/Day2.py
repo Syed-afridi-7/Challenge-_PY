@@ -30,3 +30,34 @@ print(isanagram("rat", "car"))       # False
 
 ####------------------------------------------------------------------------------------------------------------###
 
+def is_armstrong_math(n):
+    if n < 0:
+        return False
+    
+    original = n
+    num_digits = len(str(n)) 
+    total = 0
+    
+    while n > 0:
+        digit = n % 10
+        total += digit ** num_digits
+        n //= 10
+    
+    return total == original
+
+####------------------------------------------------------------------------------------------------------------###
+
+def second_largest(numbers):
+    if len(numbers) < 2:
+        return None
+    
+    largest = second = float('-inf')
+    
+    for num in numbers:
+        if num > largest:
+            second = largest
+            largest = num
+        elif largest > num > second:
+            second = num
+    
+    return second if second != float('-inf') else None
